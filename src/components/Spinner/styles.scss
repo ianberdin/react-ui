@@ -27,10 +27,10 @@
     border-radius: 100%;
     display: block;
     background: conic-gradient(
-            from 90deg at 50% 50%,
-            rgba(24, 24, 151, 0.0001) 0deg,
-            currentColor 359.96deg,
-            rgba(24, 24, 151, 0.0001) 360deg
+                    from 90deg at 50% 50%,
+                    rgba(24, 24, 151, 0.0001) 0deg,
+                    currentColor 359.96deg,
+                    rgba(24, 24, 151, 0.0001) 360deg
     );
     clip-path: circle(56% at center);
     -webkit-mask-image: radial-gradient(circle at center, transparent 44%, black 44.8%);

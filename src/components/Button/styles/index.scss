@@ -12,7 +12,7 @@ $button-icon-span-gap: () !default;
 $button-icon-span-gap: map.merge(
                 (
                         'large': 8px,
-                        'default': 10px,
+                        'medium': 10px,
                         'small': 6px,
                 ),
                 $button-icon-span-gap
@@ -29,7 +29,7 @@ $button-icon-span-gap: map.merge(
 
   line-height: 1;
   // min-height will expand when in flex
-  height: map.get($button-height, 'default');
+  height: map.get($button-height, 'medium');
   white-space: nowrap;
   cursor: pointer;
   color: getCssVar('button', 'text-color');
@@ -46,11 +46,17 @@ $button-icon-span-gap: map.merge(
   border: getCssVar('border');
   border-color: getCssVar('button', 'border-color');
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: getCssVar('button', 'hover', 'text-color');
     border-color: getCssVar('button', 'hover', 'border-color');
     background-color: getCssVar('button', 'hover', 'bg-color');
+    outline: none;
+  }
+
+  &:focus {
+    color: getCssVar('button', 'hover', 'text-color');
+    border-color: getCssVar('button', 'hover', 'border-color');
+    //background-color: getCssVar('button', 'hover', 'bg-color');
     outline: none;
   }
 
@@ -76,10 +82,10 @@ $button-icon-span-gap: map.merge(
   }
 
   @include button-size(
-                  map.get($button-padding-vertical, 'default') - $button-border-width,
-                  map.get($button-padding-horizontal, 'default') - $button-border-width,
-                  map.get($button-font-size, 'default'),
-                  map.get($button-border-radius, 'default')
+                  map.get($button-padding-vertical, 'medium') - $button-border-width,
+                  map.get($button-padding-horizontal, 'medium') - $button-border-width,
+                  map.get($button-font-size, 'medium'),
+                  map.get($button-border-radius, 'medium')
   );
 
   &::-moz-focus-inner {
@@ -89,7 +95,7 @@ $button-icon-span-gap: map.merge(
   & [class*='#{$namespace}-icon'] {
     // Icon is after label
     &:not(:first-child):last-child {
-      margin-left: map.get($button-icon-span-gap, 'default');
+      margin-left: map.get($button-icon-span-gap, 'medium');
     }
 
     // Icon is the only member. Avoid using paddings
@@ -99,7 +105,7 @@ $button-icon-span-gap: map.merge(
 
     // Icon is before label
     & + span {
-      margin-left: map.get($button-icon-span-gap, 'default');
+      margin-left: map.get($button-icon-span-gap, 'medium');
     }
 
     svg {
@@ -111,10 +117,10 @@ $button-icon-span-gap: map.merge(
     @include when(#{'icon-' + $iconPosition}) {
       [class*='#{$namespace}-spinner'] {
         &:not(:first-child):last-child {
-          margin-left: map.get($button-icon-span-gap, 'default');
+          margin-left: map.get($button-icon-span-gap, 'medium');
         }
         & + span {
-          margin-left: map.get($button-icon-span-gap, 'default');
+          margin-left: map.get($button-icon-span-gap, 'medium');
         }
       }
     }

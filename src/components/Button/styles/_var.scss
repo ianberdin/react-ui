@@ -15,7 +15,6 @@ $button: map.merge(
                         'disabled-bg-color': getCssVar('fill-color', 'blank'),
                         'disabled-border-color': getCssVar('border-color-light'),
 
-                        //'divide-border-color': rgba($color-white, 0.5),
                         'divide-border-color': getCssVar('static-white'),
 
                         'hover-text-color': getCssVar('color-primary'),
@@ -24,7 +23,7 @@ $button: map.merge(
                         'active-text-color': getCssVar('button-hover-text-color'),
                         'active-border-color': getCssVar('color-primary'),
                         'active-bg-color': getCssVar('button', 'hover-bg-color'),
-                        'outline-color': getCssVar('color-primary', 'light-5'),
+                        'outline-color': getCssVar('primary', '1'),
                         'hover-link-text-color': getCssVar('color-info'),
                         'active-color': getCssVar('text-color', 'primary'),
                 ),
@@ -65,7 +64,7 @@ $button-height: () !default;
 $button-height: map.merge(
                 (
                         'large': 40px,
-                        'default': 32px,
+                        'medium': 32px,
                         'small': 24px,
                 ),
                 $button-height
@@ -75,7 +74,7 @@ $button-font-size: () !default;
 $button-font-size: map.merge(
                 (
                         'large': getCssVar('font-size', 'medium'),
-                        'default': getCssVar('font-size', 'base'),
+                        'medium': getCssVar('font-size', 'base'),
                         'small': 12px,
                 ),
                 $button-font-size
@@ -85,7 +84,7 @@ $button-border-radius: () !default;
 $button-border-radius: map.merge(
                 (
                         'large': getCssVar('border-radius', 'base'),
-                        'default': getCssVar('border-radius', 'base'),
+                        'medium': getCssVar('border-radius', 'base'),
                         'small': calc(#{getCssVar('border-radius', 'base')} - 1px),
                 ),
                 $button-border-radius
@@ -95,7 +94,7 @@ $button-padding-vertical: () !default;
 $button-padding-vertical: map.merge(
                 (
                         'large': 9px,
-                        'default': 6px,
+                        'medium': 6px,
                         'small': 4px,
                 ),
                 $button-padding-vertical
@@ -105,7 +104,7 @@ $button-padding-horizontal: () !default;
 $button-padding-horizontal: map.merge(
                 (
                         'large': 16px,
-                        'default': 16px,
+                        'medium': 16px,
                         'small': 12px,
                 ),
                 $button-padding-horizontal

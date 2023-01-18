@@ -10,7 +10,7 @@ import './styles.scss'
 
 # Button Variants
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
+These are all button options from the Figma design. This UI is flexible and not all options are presented here. You can play with the options in more detail on the button parameters change page. Moreover, the UI supports changing color schemes.
 
 ## Secondary
 
@@ -418,6 +418,58 @@ Storybook helps you build UI components in isolation from your app's business lo
     </div>
     <div>
       <Button type="primary" link size="large" loading/>
+    </div>
+  </div>
+</div>
+
+## Dark theme
+
+<div className="button-cnt theme-dark">
+  <div className="button-cnt__row">
+    <div>Disable</div>
+    <div>
+      <Button type="primary" plain iconPosition="left" icon={<InfoIcon size={16}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain iconPosition="right" icon={<InfoIcon size={16}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain icon={<InfoIcon size={16}/>} disabled/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Regular</div>
+    <div>
+      <Button type="primary" plain iconPosition="left" icon={<InfoIcon size={16}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain iconPosition="right" icon={<InfoIcon size={16}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain icon={<InfoIcon size={16}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="primary" plain iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain loading/>
     </div>
   </div>
 </div>

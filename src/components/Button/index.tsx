@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, {MouseEventHandler, ReactNode} from 'react'
 import './styles/index.scss';
 
 import {Spinner} from '@/components/Spinner'
@@ -13,7 +13,7 @@ interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'default' | 'large';
+  size?: 'small' | 'medium' | 'large';
   
   /**
    * Is button plain?
@@ -62,19 +62,19 @@ interface ButtonProps {
   /**
    * Optional click handler
    */
-  onClick?: () => void;
+  onClick?: (...args: MouseEventHandler<HTMLButtonElement>['arguments']) => void;
 }
 
 const SPINNER_SIZE = {
   small: 14,
-  default: 16,
+  medium: 16,
   large: 18,
 }
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({
-  size = 'default',
+  size = 'medium',
   type = 'default',
   plain = false,
   link = false,
@@ -84,6 +84,7 @@ export const Button = ({
   disabled = false,
   icon,
   theme,
+  onClick,
   ...props
 }: ButtonProps) => {
   const classes = ['i-button']
@@ -112,6 +113,14 @@ export const Button = ({
     classes.push('is-square')
   }
   
+  const onClickHandler = (...args: MouseEventHandler<HTMLButtonElement>['arguments']) => {
+    if (loading || disabled) return
+    
+    if (onClick && typeof onClick === 'function') {
+      onClick(...args)
+    }
+  }
+  
   const IconOrSpinner = () =>{
     if (loading) {
       return <Spinner size={SPINNER_SIZE[size]} />
@@ -127,6 +136,7 @@ export const Button = ({
     <button
       type="button"
       className={classes.join(' ')}
+      onClick={onClickHandler}
       {...props}
     >
       {

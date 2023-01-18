@@ -48,21 +48,21 @@ $themes: (
                 TRANSPARENT: transparent,
                 STATIC-WHITE: #ffffff,
 
-                BG-DEFAULT: #ffffff, // Figma<Secondary/White>
-                BG-SECONDARY: #232732, // Figma<Secondary/Black>
-                BG-PRIMARY: #F7F7FC, // Figma<Purple>
-                BG-SUCCESS: #F7FCFA, // Figma<Green>
-                BG-WARNING: #fcfaf7, // Figma<Orange>
+                BG-DEFAULT: #0d0d0d, // Figma<Secondary/Black>
+                BG-SECONDARY: #f7f7fc, // Figma<Purple>
+                BG-PRIMARY: #161616, // Figma<Secondary/White>
+                BG-SUCCESS: #fcfaf7, // Figma<Green>
+                BG-WARNING: #f7fcfa, // Figma<Orange>
                 BG-DANGER: #fcf7f7, // Figma<Red>
                 BG-INFO: #f8fafc, // Figma<Blue>
 
-                TEXT-DEFAULT: #232732, // Figma<Secondary/Black>
-                TEXT-SECONDARY: #fcfcfc, // Figma<Secondary/White>
-                TEXT-1: #596580, // Figma<Secondary/Light Black>
-                TEXT-2: #596580, // Figma<Secondary/Grey>
-                TEXT-3: #eaeef5, // Figma<Secondary/Light Gray>
+                TEXT-DEFAULT: #f6f6f6, // Figma<Secondary/White>
+                TEXT-SECONDARY: #d9d9d9, // Figma<Secondary/Black>
+                TEXT-1: #747b94, // Figma<Secondary/Light Black>
+                TEXT-2: #5a617b, // Figma<Secondary/Grey>
+                TEXT-3: #9595bb, // Figma<Secondary/Light Gray>
 
-                BORDER-DEFAULT: #dde1ea, // Figma<Stroke/Gray>
+                BORDER-DEFAULT: #323232, // Figma<Stroke/Gray>
                 BORDER-SUCCESS: #50c7b3, // Figma<Stroke/Green>
                 BORDER-ORANGE: #f2b16e, // Figma<Stroke/Orange>
                 BORDER-DANGER: #f26d6d, // Figma<Stroke/Danger>
@@ -71,7 +71,7 @@ $themes: (
                 PRIMARY-1: #e8e8fc, // Figma<Primary/Light Purple>
                 PRIMARY-2: #5c5ce5, // Figma<Primary/Purple>
                 PRIMARY-3: #4747cb, // Figma<Primary/Dark Purple>
-                PRIMARY-4: #001f9a, // Figma<Primary/Pressed Purple>
+                PRIMARY-4: #5e5eb7, // Figma<Primary/Pressed Purple>
 
                 DANGER-1: #e54645, // Figma<Status/Red>
 

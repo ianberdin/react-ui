@@ -27,7 +27,7 @@ $themesData: () !default;
 @mixin set-color-mix-level(
         $type,
         $number,
-        $mode: 'light',
+        $mode,
         $mix-color,
         $theme
 ) {
@@ -59,7 +59,7 @@ $themesData: () !default;
                                 'base': map.get($themeColors, 'PRIMARY-2'),
                         ),
                         'success': (
-                                'base': map.get($themeColors, 'PRIMARY-2'),
+                                'base': map.get($themeColors, 'SUCCESS-1'),
                         ),
                         'warning': (
                                 'base': map.get($themeColors, 'WARNING-1'),
@@ -71,21 +71,21 @@ $themesData: () !default;
                                 'base': map.get($themeColors, 'DANGER-1'),
                         ),
                         'info': (
-                                'base': map.get($themeColors, 'TEXT-3'),
+                                'base': map.get($themeColors, 'INFO-2'),
                         )
                 )
         );
 
-        // dark-mode
         @each $type in $types {
-          @for $i from 1 through 9 {
+          @each $i in (1, 2, 3, 5, 7, 8, 9) {
             @include set-color-mix-level($type, $i, 'light', map.get($themeColors, 'BG-DEFAULT'), $theme);
           }
         }
         @each $type in $types {
-          @include set-color-mix-level($type, 2, 'dark', map.get($themeColors, 'BG-DEFAULT'), $theme);
+          @each $i in (1, 2, 3, 5, 7, 8, 9) {
+            @include set-color-mix-level($type, $i, 'dark', map.get($themeColors, 'TEXT-DEFAULT'), $theme);
+          }
         }
-        // End colors
 
         // Bg Color
         @include update-theme-data($theme, 'bg-color',
@@ -217,6 +217,9 @@ $themesData: () !default;
 
                 @include set-css-var-value('color-white', map.get($themeColors, 'BG-DEFAULT'));
                 @include set-css-var-value('color-black', map.get($themeColors, 'TEXT-DEFAULT'));
+                // Hard code to use specific color from Figma
+                @include set-css-var-value('color-primary-dark-2', map.get($themeColors, 'PRIMARY-3'));
+                @include set-css-var-value('color-primary-dark-3', map.get($themeColors, 'PRIMARY-4'));
 
                 @include set-component-css-var('box-shadow', map.get($themesData, $theme, 'box-shadow'));
 

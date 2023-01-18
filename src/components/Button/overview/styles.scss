@@ -4,10 +4,13 @@
 
 .button-cnt {
   padding-top: 24px;
+  padding-bottom: 24px;
+  background: getCssVar('bg', 'default');
+  border-radius: 4px;
 
   & + h2 {
-    padding-top: 32px;
-    padding-bottom: 16px;
+    padding-top: 12px;
+    padding-bottom: 20px;
   }
 
   .button-cnt__row {
@@ -34,6 +37,23 @@
 
       &:last-child {
         min-width: 100px;
+      }
+    }
+
+    &:first-child {
+      div:nth-child(2) {
+        border-top-left-radius: 10px;
+      }
+      div:last-child {
+        border-top-right-radius: 10px;
+      }
+    }
+    &:last-child {
+      div:nth-child(2) {
+        border-bottom-left-radius: 10px;
+      }
+      div:last-child {
+        border-bottom-right-radius: 10px;
       }
     }
   }
