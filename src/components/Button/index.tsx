@@ -1,15 +1,11 @@
 import React from 'react';
-import './style.scss';
+import './styles/index.scss';
 
 interface ButtonProps {
   /**
-   * Is this the principal call to action on the page?
+   * What is type should the button be?
    */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
+  type?: 'default' | 'primary' | 'success';
   /**
    * How large should the button be?
    */
@@ -18,6 +14,10 @@ interface ButtonProps {
    * Button contents
    */
   label: string;
+  /**
+   * Is button plain?
+   */
+  plain?: boolean;
   /**
    * Optional click handler
    */
@@ -28,18 +28,23 @@ interface ButtonProps {
  * Primary UI component for user interaction
  */
 export const Button = ({
-  primary = false,
   size = 'medium',
-  backgroundColor,
+  type = 'default',
+  plain = false,
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const classes = ['i-button']
+  classes.push(`i-button--${size}`)
+  classes.push(`i-button--${type}`)
+  if (plain) {
+    classes.push('is-plain')
+  }
+  
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
+      className={classes.join(' ')}
       {...props}
     >
       {label}

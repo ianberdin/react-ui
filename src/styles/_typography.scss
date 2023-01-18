@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+@use 'variables' as *;
+@use 'mixins/var' as *;
+@use 'mixins/function' as *;
+
+@use "node_modules/inter-ui/default" with (
+  $inter-font-display: swap,
+  $inter-font-path: 'node_modules/inter-ui/Inter (web)'
+);
+@use "node_modules/inter-ui/variable" with (
+  $inter-font-display: swap,
+  $inter-font-path: 'node_modules/inter-ui/Inter (web)'
+);
+@include default.all;
+@include variable.all;
+
+:root {
+  font-family: getCssVar('font-family', '');
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  // Typography
+  @include set-component-css-var('font-size', $font-size);
+  @include set-component-css-var('font-family', $font-family);
+
+  @include set-css-var-value('font-weight-default', 500);
+  @include set-css-var-value('font-weight-semi', 600);
+  @include set-css-var-value('font-line-height-primary', 24px);
+}
+
+@supports (font-variation-settings: normal) {
+  html { font-family: "Inter var", "system-ui"; }
+}

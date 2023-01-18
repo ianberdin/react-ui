@@ -1,18 +1,17 @@
+@use 'sass:map';
+
 @use 'variables' as *;
+@use 'mixins/var' as *;
 
 :root {
-  font-family: $font-family;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  // --el-border-radius-#{$type}
+  @include set-component-css-var('border-radius', $border-radius);
 
-  //color-scheme: light dark;
-  //color: rgba(255, 255, 255, 0.87);
-  //background-color: #242424;
+  // Transition
+  // refer to this website to get the bezier motion function detail
+  // https://cubic-bezier.com/#p1,p2,p3,p4 (change px as your function parameter)
+  @include set-component-css-var('transition-duration', $transition-duration);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  @include set-component-css-var('transition-function', $transition-function);
+  @include set-component-css-var('transition', $transition);
 }

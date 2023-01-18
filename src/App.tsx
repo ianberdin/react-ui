@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import {Button} from '@/components/Button'
 
 function App() {
   const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    document.body.classList.add('theme-light');
+  }, []);
 
   return (
-    <div className="App theme-light">
+    <div className="App">
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
@@ -18,10 +22,9 @@ function App() {
       <h1>React UI</h1>
       
       <div className="card">
-        <Button label={'hello'}
-                primary={true}
-                backgroundColor={'red'}
-                size={'small'}
+        <Button label={'Button'}
+                type='primary'
+                size='medium'
                 onClick={() => setCount((count) => count + 1)}></Button>
       </div>
     </div>

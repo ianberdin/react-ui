@@ -1,3 +1,8 @@
 @use "vendor/normalize";
 
 @forward "theme";
+
+@use "root";
+@use "typography";
+
+@use "body";

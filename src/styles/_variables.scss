@@ -1,52 +1,171 @@
+@use 'sass:map';
+
+@use 'mixins/function' as *;
+
+
+// Define colors for themes
 $themes: (
         light: (
                 TRANSPARENT: transparent,
-                STATIC_WHITE: #ffffff,
-                BG-1: #f2f2f2,
-                BG-2: #ffffff,
-                BG-3: #E0E0E0,
-                TEXT-1: #111111,
-                TEXT-2: #111111,
-                TEXT-3: #545454,
-                BORDER-1: #d1d1d1,
-                BORDER-2: #d1d1d1,
-                BORDER-3: #d1d1d1,
-                PRIMARY-1: #38a800,
-                PRIMARY-2: #38a800,
-                PRIMARY-3: #38a800,
-                DANGER-1: #e55555,
-                DANGER-2: #da474b,
-                WARNING-1: #bd7700,
-                WARNING-2: #efa00f,
+                STATIC-WHITE: #ffffff,
+
+                BG-DEFAULT: #ffffff, // Figma<Secondary/White>
+                BG-SECONDARY: #232732, // Figma<Secondary/Black>
+                BG-PRIMARY: #f7f7fc, // Figma<Purple>
+                BG-SUCCESS: #f7fcfa, // Figma<Green>
+                BG-WARNING: #fcfaf7, // Figma<Orange>
+                BG-DANGER: #fcf7f7, // Figma<Red>
+                BG-INFO: #f8fafc, // Figma<Blue>
+
+                TEXT-DEFAULT: #232732, // Figma<Secondary/Black>
+                TEXT-SECONDARY: #fcfcfc, // Figma<Secondary/White>
+                TEXT-1: #596580, // Figma<Secondary/Light Black>
+                TEXT-2: #596580, // Figma<Secondary/Grey>
+                TEXT-3: #eaeef5, // Figma<Secondary/Light Gray>
+
+                BORDER-DEFAULT: #dde1ea, // Figma<Stroke/Gray>
+                BORDER-SUCCESS: #50c7b3, // Figma<Stroke/Green>
+                BORDER-ORANGE: #f2b16e, // Figma<Stroke/Orange>
+                BORDER-DANGER: #f26d6d, // Figma<Stroke/Danger>
+                BORDER-INFO: #a0a0e5, // Figma<Stroke/Gray>
+
+                PRIMARY-1: #e8e8fc, // Figma<Primary/Light Purple>
+                PRIMARY-2: #5c5ce5, // Figma<Primary/Purple>
+                PRIMARY-3: #4747cb, // Figma<Primary/Dark Purple>
+                PRIMARY-4: #001f9a, // Figma<Primary/Pressed Purple>
+
+                DANGER-1: #e54645, // Figma<Status/Red>
+
+                WARNING-1: #f29d43, // Figma<Status/Orange>
+                WARNING-2: #cd8338, // Figma<Status/Dark Orange>
+
+                SUCCESS-1: #08ae8f, // Figma<Status/Green>
+                SUCCESS-2: #02876f, // Figma<Status/Dark Green>
+
+                INFO-2: #41acd9, // Figma<Status/Blue>
         ),
         dark: (
                 TRANSPARENT: transparent,
                 STATIC-WHITE: #ffffff,
-                BG-1: #161616,
-                BG-2: #0d0d0d,
-                BG-3: #383c38,
-                TEXT-1: #f6f6f6,
-                TEXT-2: #d9d9d9,
-                TEXT-3: #b1b1b1,
-                BORDER-1: #323232,
-                BORDER-2: #323232,
-                BORDER-3: #555555,
-                PRIMARY-1: #72a24d,
-                PRIMARY-2: #58a51b,
-                PRIMARY-3: #d4ebc2,
-                DANGER-1: #eb5757,
-                DANGER-2: #f37575,
-                WARNING-1: #bd7700,
-                WARNING-2: #ebe3c2,
+
+                BG-DEFAULT: #ffffff, // Figma<Secondary/White>
+                BG-SECONDARY: #232732, // Figma<Secondary/Black>
+                BG-PRIMARY: #F7F7FC, // Figma<Purple>
+                BG-SUCCESS: #F7FCFA, // Figma<Green>
+                BG-WARNING: #fcfaf7, // Figma<Orange>
+                BG-DANGER: #fcf7f7, // Figma<Red>
+                BG-INFO: #f8fafc, // Figma<Blue>
+
+                TEXT-DEFAULT: #232732, // Figma<Secondary/Black>
+                TEXT-SECONDARY: #fcfcfc, // Figma<Secondary/White>
+                TEXT-1: #596580, // Figma<Secondary/Light Black>
+                TEXT-2: #596580, // Figma<Secondary/Grey>
+                TEXT-3: #eaeef5, // Figma<Secondary/Light Gray>
+
+                BORDER-DEFAULT: #dde1ea, // Figma<Stroke/Gray>
+                BORDER-SUCCESS: #50c7b3, // Figma<Stroke/Green>
+                BORDER-ORANGE: #f2b16e, // Figma<Stroke/Orange>
+                BORDER-DANGER: #f26d6d, // Figma<Stroke/Danger>
+                BORDER-INFO: #a0a0e5, // Figma<Stroke/Gray>
+
+                PRIMARY-1: #e8e8fc, // Figma<Primary/Light Purple>
+                PRIMARY-2: #5c5ce5, // Figma<Primary/Purple>
+                PRIMARY-3: #4747cb, // Figma<Primary/Dark Purple>
+                PRIMARY-4: #001f9a, // Figma<Primary/Pressed Purple>
+
+                DANGER-1: #e54645, // Figma<Status/Red>
+
+                WARNING-1: #f29d43, // Figma<Status/Orange>
+                WARNING-2: #cd8338, // Figma<Status/Dark Orange>
+
+                SUCCESS-1: #08ae8f, // Figma<Status/Green>
+                SUCCESS-2: #02876f, // Figma<Status/Dark Green>
+
+                INFO-2: #41acd9, // Figma<Status/Blue>
         ),
 );
 
-// Fonts
-$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-'Helvetica Neue' !default;
+// types
+$types: primary, success, warning, danger, error, info;
 
-// Transitions
-$fadeInOut: 0.05s ease-in-out !default;
+// Border
+$border-width: 1px !default;
+$border-style: solid !default;
+$border-color-hover: getCssVar('text-color', 'disabled') !default;
 
-$funcEaseInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
-$funcEaseOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+$border-radius: () !default;
+$border-radius: map.merge(
+                (
+                        'base': 4px,
+                        'small': 2px,
+                        'round': 20px,
+                        'circle': 100%,
+                ),
+                $border-radius
+);
+
+// Typography
+$font-family: () !default;
+$font-family: map.merge(
+                (
+                  // default family
+                  '': "'Inter', 'system-ui', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"
+                ),
+                $font-family
+);
+
+$font-size: () !default;
+$font-size: map.merge(
+                (
+                        'extra-large': 20px,
+                        'large': 18px,
+                        'medium': 16px,
+                        'base': 14px,
+                        'small': 13px,
+                        'extra-small': 12px,
+                ),
+                $font-size
+);
+
+// transition
+$transition: () !default;
+$transition: map.merge(
+                (
+                        'all': all getCssVar('transition-duration')
+                        getCssVar('transition-function-ease-in-out-bezier'),
+                        'fade': opacity getCssVar('transition-duration')
+                        getCssVar('transition-function-fast-bezier'),
+                        'md-fade': (
+                                transform getCssVar('transition-duration')
+                                getCssVar('transition-function-fast-bezier'),
+                                opacity getCssVar('transition-duration')
+                                getCssVar('transition-function-fast-bezier'),
+                        ),
+                        'fade-linear': opacity getCssVar('transition-duration-fast') linear,
+                        'border': border-color getCssVar('transition-duration-fast')
+                        getCssVar('transition-function-ease-in-out-bezier'),
+                        'box-shadow': box-shadow getCssVar('transition-duration-fast')
+                        getCssVar('transition-function-ease-in-out-bezier'),
+                        'color': color getCssVar('transition-duration-fast')
+                        getCssVar('transition-function-ease-in-out-bezier'),
+                ),
+                $transition
+);
+
+$transition-duration: () !default;
+$transition-duration: map.merge(
+                (
+                        '': 0.3s,
+                        'fast': 0.2s,
+                ),
+                $transition-duration
+);
+
+$transition-function: () !default;
+$transition-function: map.merge(
+                (
+                        'ease-in-out-bezier': cubic-bezier(0.645, 0.045, 0.355, 1),
+                        'fast-bezier': cubic-bezier(0.23, 1, 0.32, 1),
+                ),
+                $transition-function
+);
