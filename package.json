@@ -2,6 +2,7 @@
   "name": "react-ui",
   "private": true,
   "version": "0.0.0",
+  "node": "16.x",
   "type": "module",
   "scripts": {
     "dev": "vite",
