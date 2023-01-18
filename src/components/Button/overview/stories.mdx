@@ -1,0 +1,43 @@
+import {Meta} from '@storybook/addon-docs'
+
+import {Button} from '../index';
+import './styles.scss'
+
+<Meta title="Example/Button/Overview" component={Button}/>
+
+export const Template = (args) => <Button {...args} />;
+
+# Button Variants
+
+Storybook helps you build UI components in isolation from your app's business logic, data, and context.
+
+## Secondary
+
+<div className="button-cnt theme-light">
+  <div className="button-cnt__row">
+    <div>
+      <Button label={'Button'} disabled />
+    </div>
+    <div>
+      <Button label={'Button'} />
+    </div>
+    <div>
+      <Button label={'Button'} />
+    </div>
+    <div>
+      <Button label={'Button'} />
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>
+      <Button label={'Button'} />
+    </div>
+    <div>
+      <Button label={'Button'} />
+    </div>
+    <div>
+      <Button label={'Button'} />
+    </div>
+  </div>
+</div>

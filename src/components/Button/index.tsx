@@ -1,11 +1,14 @@
 import React from 'react';
 import './styles/index.scss';
 
+import {Spinner} from '@/components/Spinner'
+
+
 interface ButtonProps {
   /**
    * What is type should the button be?
    */
-  type?: 'default' | 'primary' | 'success';
+  type?: 'default' | 'primary' | 'success' | 'danger' | 'info' | 'warning';
   /**
    * How large should the button be?
    */
@@ -18,6 +21,20 @@ interface ButtonProps {
    * Is button plain?
    */
   plain?: boolean;
+  
+  /**
+   * Is button disabled?
+   */
+  disabled?: boolean;
+  /**
+   * Is button in loading state?
+   */
+  loading?: boolean;
+  
+  /**
+   * Override default page theme
+   */
+  theme?: 'light' | 'dark'
   /**
    * Optional click handler
    */
@@ -31,6 +48,9 @@ export const Button = ({
   size = 'medium',
   type = 'default',
   plain = false,
+  loading = false,
+  disabled = false,
+  theme,
   label,
   ...props
 }: ButtonProps) => {
@@ -40,6 +60,9 @@ export const Button = ({
   if (plain) {
     classes.push('is-plain')
   }
+  if (theme) {
+    classes.push(`theme-${theme}`)
+  }
   
   return (
     <button
@@ -47,7 +70,10 @@ export const Button = ({
       className={classes.join(' ')}
       {...props}
     >
-      {label}
+      <span>{label}</span>
+      {
+        loading && <Spinner size={30} />
+      }
     </button>
   );
 };

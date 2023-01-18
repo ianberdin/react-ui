@@ -23,8 +23,9 @@ function App() {
       
       <div className="card">
         <Button label={'Button'}
-                type='primary'
+                type='default'
                 size='medium'
+                loading={true}
                 onClick={() => setCount((count) => count + 1)}></Button>
       </div>
     </div>

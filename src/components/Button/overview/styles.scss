@@ -1,0 +1,16 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins/function' as *;
+
+
+.button-cnt {
+  .button-cnt__row {
+    display: flex;
+
+    > div {
+      border: 1px dashed getCssVar('border', 'default');
+      padding: 29px;
+      margin-left: -1px;
+      margin-top: -1px;
+    }
+  }
+}

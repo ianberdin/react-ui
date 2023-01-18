@@ -1,4 +1,5 @@
-const {TsconfigPathsPlugin} = require('tsconfig-paths-webpack-plugin')
+const path = require('path')
+const {mergeConfig} = require('vite')
 
 module.exports = {
   'stories': [
@@ -23,12 +24,16 @@ module.exports = {
   'features': {
     'storyStoreV7': true
   },
-  webpackFinal: async (config) => {
-    // Add path aliases from tsconfig.json
-    [].push.apply(config.resolve.plugins, [
-      new TsconfigPathsPlugin({extensions: config.resolve.extensions})
-    ])
-    
-    return config
+  async viteFinal(config, {configType}) {
+    return mergeConfig(config, {
+      resolve: {
+        alias: [
+          {
+            find: "@",
+            replacement: path.resolve(__dirname, "../src"),
+          },
+        ]
+      }
+    })
   }
 }
