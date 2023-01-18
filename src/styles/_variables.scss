@@ -1,0 +1,52 @@
+$themes: (
+        light: (
+                TRANSPARENT: transparent,
+                STATIC_WHITE: #ffffff,
+                BG-1: #f2f2f2,
+                BG-2: #ffffff,
+                BG-3: #E0E0E0,
+                TEXT-1: #111111,
+                TEXT-2: #111111,
+                TEXT-3: #545454,
+                BORDER-1: #d1d1d1,
+                BORDER-2: #d1d1d1,
+                BORDER-3: #d1d1d1,
+                PRIMARY-1: #38a800,
+                PRIMARY-2: #38a800,
+                PRIMARY-3: #38a800,
+                DANGER-1: #e55555,
+                DANGER-2: #da474b,
+                WARNING-1: #bd7700,
+                WARNING-2: #efa00f,
+        ),
+        dark: (
+                TRANSPARENT: transparent,
+                STATIC-WHITE: #ffffff,
+                BG-1: #161616,
+                BG-2: #0d0d0d,
+                BG-3: #383c38,
+                TEXT-1: #f6f6f6,
+                TEXT-2: #d9d9d9,
+                TEXT-3: #b1b1b1,
+                BORDER-1: #323232,
+                BORDER-2: #323232,
+                BORDER-3: #555555,
+                PRIMARY-1: #72a24d,
+                PRIMARY-2: #58a51b,
+                PRIMARY-3: #d4ebc2,
+                DANGER-1: #eb5757,
+                DANGER-2: #f37575,
+                WARNING-1: #bd7700,
+                WARNING-2: #ebe3c2,
+        ),
+);
+
+// Fonts
+$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+'Helvetica Neue' !default;
+
+// Transitions
+$fadeInOut: 0.05s ease-in-out !default;
+
+$funcEaseInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$funcEaseOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);

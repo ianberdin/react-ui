@@ -1,0 +1,204 @@
+@use 'sass:map';
+@use 'sass:math';
+
+@use "mixins/config" as config;
+@use "mixins/function" as *;
+@use "mixins/var" as *;
+@use "variables" as *;
+
+
+$themesData: () !default;
+
+@mixin set-theme-data($theme, $key, $data) {
+        $themesData: map.deep-merge(
+                        (
+                                $theme: (
+                                        $key: $data
+                                )
+                        ),
+                        $themesData
+        ) !global;
+}
+
+@each $theme, $themeColors in $themes {
+        // Colors
+        @include set-theme-data($theme, 'colors',
+                (
+                        'white': map.get($themeColors, 'TEXT-1'),
+                        'black': map.get($themeColors, 'BG-1'),
+                        'primary': (
+                                'base': map.get($themeColors, 'PRIMARY-1'),
+                        ),
+                        'success': (
+                                'base': map.get($themeColors, 'PRIMARY-2'),
+                        ),
+                        'warning': (
+                                'base': map.get($themeColors, 'WARNING-1'),
+                        ),
+                        'danger': (
+                                'base': map.get($themeColors, 'DANGER-1'),
+                        ),
+                        'error': (
+                                'base': map.get($themeColors, 'DANGER-1'),
+                        ),
+                        'info': (
+                                'base': map.get($themeColors, 'TEXT-3'),
+                        )
+                )
+        );
+
+
+        //// Bg Color
+        //@include set-theme-data($theme, 'bg-color',
+        //        (
+        //                'page': map-get($themeColors, 'BG-1'),
+        //                '': map-get($themeColors, 'BG-1'),
+        //                'overlay': map-get($themeColors, 'BG-2'),
+        //        )
+        //);
+        // //End Bg Color
+
+        // Text Color
+        //@include update-theme-data($theme, 'text-color',
+        //        (
+        //                'primary': rgba(map.get($themeColors, 'TEXT_1'), 1),
+        //                'regular': rgba(map.get($themeColors, 'TEXT_2'), 1),
+        //                'secondary': rgba(map.get($themeColors, 'TEXT_1'), 0.65),
+        //                'placeholder': rgba(map.get($themeColors, 'TEXT_1'), 0.55),
+        //                'disabled': rgba(map.get($themeColors, 'TEXT_1'), 0.4),
+        //        )
+        //);
+        // mix to hex to avoid overlay issues
+        //@each $key, $val in map.get($themesData, $theme, 'text-color') {
+        //        @if ($key != 'blank') {
+        //                @include update-theme-data($theme, 'text-color',
+        //                        (
+        //                                $key: mix-overlay-color($val, map-get($themeColors, 'BG_1')),
+        //                        )
+        //                );
+        //        }
+        //}
+        // End Text color
+
+        // Border Color
+        //@include update-theme-data($theme, 'border-color',
+        //        (
+        //                'darker': rgba(map.get($themeColors, 'BORDER_3'), 1),
+        //                'dark': darken(rgba(map.get($themeColors, 'BORDER_3'), 0.7), 7%),
+        //                '': rgba(map.get($themeColors, 'BORDER_3'), 0.9),
+        //                'light': rgba(map.get($themeColors, 'BORDER_3'), 0.5),
+        //                'lighter': rgba(map.get($themeColors, 'BORDER_3'), 0.4),
+        //                'extra-light': rgba(map.get($themeColors, 'BORDER_3'), 0.2),
+        //        )
+        //);
+        // mix to hex to avoid overlay issues
+        //@each $key, $val in map.get($themesData, $theme, 'border-color') {
+        //        @if ($key != 'blank') {
+        //                @include update-theme-data($theme, 'border-color',
+        //                        (
+        //                                $key: mix-overlay-color($val, map-get($themeColors, 'BG_1')),
+        //                        )
+        //                );
+        //        }
+        //}
+        // End Border color
+
+        // Fill color
+        //@include update-theme-data($theme, 'fill-color',
+        //        (
+        //                'darker': rgba(map.get($themeColors, 'BG_1'), 1),
+        //                'dark': rgba(map.get($themeColors, 'BG_1'), 1),
+        //                '': rgba(map.get($themeColors, 'BG_1'), 1),
+        //                'light': rgba(map.get($themeColors, 'BG_3'), 0.25),
+        //                //'light': rgba(0,0,0, 0.25),
+        //                'lighter': rgba(map.get($themeColors, 'BG_1'), 1),
+        //                'extra-light': rgba(map.get($themeColors, 'BG_1'), 1),
+        //                'blank': transparent,
+        //        )
+        //);
+
+        // mix to hex to avoid overlay issues
+        //@each $key, $val in map.get($themesData, $theme, 'fill-color') {
+        //        @if ($key != 'blank') {
+        //                @include update-theme-data($theme, 'fill-color',
+        //                        (
+        //                                $key: mix-overlay-color($val, map-get($themeColors, 'PRIMARY_1')),
+        //                        )
+        //                );
+        //        }
+        //}
+        // End Fill color
+
+        // Box Shadow color
+        //@include update-theme-data($theme, 'box-shadow',
+        //        (
+        //                //'': rgba(map.get($themeColors, 'BG_2'), 0.8),
+        //                //'extra-light': rgba(map.get($themeColors, 'BG_2'), 0.3),
+        //                //'': (
+        //                //        0px 12px 32px 4px rgba(0, 0, 0, 0.36),
+        //                //        0px 8px 20px rgba(0, 0, 0, 0.72),
+        //                //),
+        //                //'light': (
+        //                //        //0px 0px 12px rgba(0, 0, 0, 0.36),
+        //                //        map.get($themeColors, 'popoverShadow'),
+        //                //),
+        //                //'lighter': (
+        //                //        //0px 0px 6px rgba(0, 0, 0, 0.72),
+        //                //        map.get($themeColors, 'popoverShadow'),
+        //                //),
+        //                //'dark': (
+        //                //        0px 16px 48px 16px rgba(0, 0, 0, 0.72),
+        //                //        0px 12px 32px #000000,
+        //                //        0px 8px 16px -8px #000000,
+        //                //),
+        //                '': (
+        //                        0px 12px 32px 4px rgba(0, 0, 0, 0.04),
+        //                        0px 8px 20px rgba(0, 0, 0, 0.08),
+        //                ),
+        //                'light': (
+        //                        0px 0px 12px rgba(0, 0, 0, 0.12),
+        //                ),
+        //                'lighter': (
+        //                        0px 0px 6px rgba(0, 0, 0, 0.12),
+        //                ),
+        //                'dark': (
+        //                        0px 16px 48px 16px rgba(0, 0, 0, 0.08),
+        //                        0px 12px 32px rgba(0, 0, 0, 0.12),
+        //                        0px 8px 16px -8px rgba(0, 0, 0, 0.16),
+        //                ),
+        //        )
+        //);
+        // End Mask color
+
+        // Mask color
+        //@include update-theme-data($theme, 'mask-color',
+        //        (
+        //                '': rgba(map.get($themeColors, 'BG_2'), 0.8),
+        //                'extra-light': rgba(map.get($themeColors, 'BG_2'), 0.3),
+        //                //'': map.get($themeColors, 'BG_2'),
+        //                //'extra-light': map.get($themeColors, 'BG_2'),
+        //        )
+        //);
+        // End Mask color
+}
+
+@each $theme, $themeColors in $themes {
+        .theme-#{$theme} {
+                @each $themeColor, $value in $themeColors {
+                        #{joinVarName(to-lower-case(#{$themeColor}))}: #{$value};
+                }
+
+                // hex colors
+                //@each $type in (primary, success, warning, danger, error, info) {
+                //        @include set-css-color-type(map.get($themesData, $theme, 'colors'), $type);
+                //}
+
+                //@include set-component-css-var('box-shadow', map.get($themesData, $theme, 'box-shadow'));
+
+                //@include set-component-css-var('bg-color', map.get($themesData, $theme, 'bg-color'));
+                //@include set-component-css-var('text-color', map.get($themesData, $theme, 'text-color'));
+                //@include set-component-css-var('border-color', map.get($themesData, $theme, 'border-color'));
+                //@include set-component-css-var('fill-color', map.get($themesData, $theme, 'fill-color'));
+                //@include set-component-css-var('mask-color', map.get($themesData, $theme, 'mask-color'));
+        }
+}
