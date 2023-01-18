@@ -22,11 +22,10 @@ function App() {
       <h1>React UI</h1>
       
       <div className="card">
-        <Button label={'Button'}
-                type='default'
-                size='medium'
+        <Button type='default'
+                size='default'
                 loading={true}
-                onClick={() => setCount((count) => count + 1)}></Button>
+                onClick={() => setCount((count) => count + 1)}>Button</Button>
       </div>
     </div>
   )

@@ -20,12 +20,6 @@
   height: 100%;
   position: relative;
 
-  & .path {
-    stroke: getCssVar('border-color', 'lighter');
-    stroke-linecap: round;
-    animation: dash 1.5s ease-in-out infinite;
-  }
-
   @include e(icon) {
     position: absolute;
     width: 100%;
@@ -35,20 +29,12 @@
     background: conic-gradient(
             from 90deg at 50% 50%,
             rgba(24, 24, 151, 0.0001) 0deg,
-            #5C5CE5 359.96deg,
+            currentColor 359.96deg,
             rgba(24, 24, 151, 0.0001) 360deg
     );
-  }
-  @include e(circle) {
-    position: absolute;
-    width: 60%;
-    height: 60%;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    border-radius: 100%;
-    display: block;
-    background: white;
+    clip-path: circle(56% at center);
+    -webkit-mask-image: radial-gradient(circle at center, transparent 44%, black 44.8%);
+    mask-image: radial-gradient(circle at center, transparent 44%, black 44.8%);
   }
 }
 

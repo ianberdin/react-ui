@@ -21,7 +21,6 @@ export const Spinner = ({
     >
       <div className="i-spinner-inner" >
         <div className="i-spinner-inner__icon"></div>
-        <div className="i-spinner-inner__circle"></div>
       </div>
     </div>
   );

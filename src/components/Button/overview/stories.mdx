@@ -1,11 +1,12 @@
 import {Meta} from '@storybook/addon-docs'
 
-import {Button} from '../index';
+import {Button} from '../index'
+import InfoIcon from '@/components/Icons/info'
+import ArrowRight from '@/components/Icons/arrowRight'
+
 import './styles.scss'
 
 <Meta title="Example/Button/Overview" component={Button}/>
-
-export const Template = (args) => <Button {...args} />;
 
 # Button Variants
 
@@ -15,29 +16,408 @@ Storybook helps you build UI components in isolation from your app's business lo
 
 <div className="button-cnt theme-light">
   <div className="button-cnt__row">
+    <div>Disable</div>
     <div>
-      <Button label={'Button'} disabled />
+      <Button type="primary" plain iconPosition="left" icon={<InfoIcon size={16}/>} disabled>Button</Button>
     </div>
     <div>
-      <Button label={'Button'} />
+      <Button type="primary" plain disabled>Button</Button>
     </div>
     <div>
-      <Button label={'Button'} />
+      <Button type="primary" plain iconPosition="right" icon={<InfoIcon size={16}/>} disabled>Button</Button>
     </div>
     <div>
-      <Button label={'Button'} />
+      <Button type="primary" plain icon={<InfoIcon size={16}/>} disabled/>
     </div>
   </div>
 
   <div className="button-cnt__row">
+    <div>Regular</div>
     <div>
-      <Button label={'Button'} />
+      <Button type="primary" plain iconPosition="left" icon={<InfoIcon size={16}/>}>Button</Button>
     </div>
     <div>
-      <Button label={'Button'} />
+      <Button type="primary" plain>Button</Button>
     </div>
     <div>
-      <Button label={'Button'} />
+      <Button type="primary" plain iconPosition="right" icon={<InfoIcon size={16}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain icon={<InfoIcon size={16}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="primary" plain iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain loading/>
+    </div>
+  </div>
+</div>
+
+<div className="button-cnt theme-light">
+  <div className="button-cnt__row">
+    <div>Disable</div>
+    <div>
+      <Button type="primary" plain size="large" iconPosition="left" icon={<InfoIcon size={18}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large" disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large" iconPosition="right" icon={<InfoIcon size={18}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large" icon={<InfoIcon size={18}/>} disabled/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Regular</div>
+    <div>
+      <Button type="primary" plain size="large" iconPosition="left" icon={<InfoIcon size={18}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large">Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large" iconPosition="right" icon={<InfoIcon size={18}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large" icon={<InfoIcon size={18}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="primary" plain size="large" iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large" iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" plain size="large" loading/>
+    </div>
+  </div>
+</div>
+
+## Primary
+
+<div className="button-cnt theme-light">
+  <div className="button-cnt__row">
+    <div>Disable</div>
+    <div>
+      <Button type="primary" iconPosition="left" icon={<InfoIcon size={16}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" iconPosition="right" icon={<InfoIcon size={16}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" icon={<InfoIcon size={16}/>} disabled/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Regular</div>
+    <div>
+      <Button type="primary" iconPosition="left" icon={<InfoIcon size={16}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary">Button</Button>
+    </div>
+    <div>
+      <Button type="primary" iconPosition="right" icon={<InfoIcon size={16}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" icon={<InfoIcon size={16}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="primary" iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" loading/>
+    </div>
+  </div>
+</div>
+
+<div className="button-cnt theme-light">
+  <div className="button-cnt__row">
+    <div>Disable</div>
+    <div>
+      <Button type="primary" size="large" iconPosition="left" icon={<InfoIcon size={18}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large" disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large" iconPosition="right" icon={<InfoIcon size={18}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large" icon={<InfoIcon size={18}/>} disabled/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Regular</div>
+    <div>
+      <Button type="primary" size="large" iconPosition="left" icon={<InfoIcon size={18}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large">Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large" iconPosition="right" icon={<InfoIcon size={18}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large" icon={<InfoIcon size={18}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="primary" size="large" iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large" iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" size="large" loading/>
+    </div>
+  </div>
+</div>
+
+## Danger
+
+<div className="button-cnt theme-light">
+  <div className="button-cnt__row">
+    <div>Disable</div>
+    <div>
+      <Button type="danger" iconPosition="left" icon={<InfoIcon size={16}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" iconPosition="right" icon={<InfoIcon size={16}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" icon={<InfoIcon size={16}/>} disabled/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Regular</div>
+    <div>
+      <Button type="danger" iconPosition="left" icon={<InfoIcon size={16}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="danger">Button</Button>
+    </div>
+    <div>
+      <Button type="danger" iconPosition="right" icon={<InfoIcon size={16}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" icon={<InfoIcon size={16}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="danger" iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" loading/>
+    </div>
+  </div>
+</div>
+
+<div className="button-cnt theme-light">
+  <div className="button-cnt__row">
+    <div>Disable</div>
+    <div>
+      <Button type="danger" size="large" iconPosition="left" icon={<InfoIcon size={18}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large" disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large" iconPosition="right" icon={<InfoIcon size={18}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large" icon={<InfoIcon size={18}/>} disabled/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Regular</div>
+    <div>
+      <Button type="danger" size="large" iconPosition="left" icon={<InfoIcon size={18}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large">Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large" iconPosition="right" icon={<InfoIcon size={18}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large" icon={<InfoIcon size={18}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="danger" size="large" iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large" iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="danger" size="large" loading/>
+    </div>
+  </div>
+</div>
+
+## Link Primary
+
+<div className="button-cnt theme-light">
+  <div className="button-cnt__row">
+    <div>Disable</div>
+    <div>
+      <Button type="primary" link iconPosition="left" icon={<ArrowRight size={9}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link iconPosition="right" icon={<ArrowRight size={9}/>} disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link icon={<ArrowRight size={9}/>} disabled/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Regular</div>
+    <div>
+      <Button type="primary" link iconPosition="left" icon={<ArrowRight size={9}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link iconPosition="right" icon={<ArrowRight size={9}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link icon={<ArrowRight size={9}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="primary" link iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link loading/>
+    </div>
+  </div>
+</div>
+
+<div className="button-cnt theme-light">
+  <div className="button-cnt__row">
+    <div>Disable</div>
+    <div>
+      <Button type="primary" link size="large" iconPosition="left" icon={<ArrowRight size={12}/>}
+              disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large" disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large" iconPosition="right" icon={<ArrowRight size={12}/>}
+              disabled>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large" icon={<ArrowRight size={12}/>} disabled/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Regular</div>
+    <div>
+      <Button type="primary" link size="large" iconPosition="left" icon={<ArrowRight size={12}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large">Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large" iconPosition="right" icon={<ArrowRight size={12}/>}>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large" icon={<ArrowRight size={12}/>}/>
+    </div>
+  </div>
+
+  <div className="button-cnt__row">
+    <div>Loader</div>
+    <div>
+      <Button type="primary" link size="large" iconPosition="left" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large" iconPosition="right" loading>Button</Button>
+    </div>
+    <div>
+      <Button type="primary" link size="large" loading/>
     </div>
   </div>
 </div>

@@ -16,13 +16,13 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  label: 'Button',
+  children: 'Button',
   theme: 'light'
 }
 
 export const Primary = Template.bind({})
 Primary.args = {
-  label: 'Button',
+  children: 'Button',
   type: 'primary',
   theme: 'light'
 }
@@ -30,7 +30,7 @@ Primary.args = {
 
 export const Danger = Template.bind({})
 Danger.args = {
-  label: 'Button',
+  children: 'Button',
   type: 'danger',
-  theme: 'light'
+  theme: 'light',
 }
