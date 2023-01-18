@@ -8,9 +8,11 @@ import InfoIcon from '@/components/Icons/info'
 export default {
   title: 'Example/Button',
   component: Button,
-  argTypes: {
-    // theme: {control: 'enum', options: ['light', 'dark']}
-  }
+  decorators: [(Story) => <div
+    style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}
+  >
+    {Story()}
+  </div>],
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />

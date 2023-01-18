@@ -3,15 +3,10 @@
 
 
 .button-cnt {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 24px 12px;
+  margin-bottom: 12px !important;
   background: getCssVar('bg', 'default');
   border-radius: 4px;
-
-  & + h2 {
-    padding-top: 12px;
-    padding-bottom: 20px;
-  }
 
   .button-cnt__row {
     display: flex;

@@ -1,7 +1,7 @@
 ### Intelas Button UI
 
 ### Demo
-https://react-hy0eo2qmz-ianberdin.vercel.app/
+https://react-ui-rho.vercel.app/
 
 ### Installation
 ```

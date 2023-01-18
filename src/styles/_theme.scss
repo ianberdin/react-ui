@@ -215,7 +215,7 @@ $themesData: () !default;
                         @include set-css-color-rgb(map.get($themesData, $theme, 'colors'), $type);
                 }
 
-                @include set-css-var-value('color-white', map.get($themeColors, 'BG-DEFAULT'));
+                @include set-css-var-value('color-white', map.get($themeColors, 'STATIC-WHITE'));
                 @include set-css-var-value('color-black', map.get($themeColors, 'TEXT-DEFAULT'));
                 // Hard code to use specific color from Figma
                 @include set-css-var-value('color-primary-dark-2', map.get($themeColors, 'PRIMARY-3'));
